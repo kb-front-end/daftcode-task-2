@@ -4,11 +4,14 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 
 class App extends React.Component {// eslint disable-line react/prefer-stateless-function
-//static propTypes = {
-//    from: PropTypes.number.isRequired,
-//    to: PropTypes.number.isRequired,
-//    number: PropTypes.number.isRequired
-//  }
+static propTypes = {
+    from: PropTypes.number.isRequired,
+    to: PropTypes.number.isRequired,
+    number: PropTypes.number.isRequired,
+     minZeroAdded: PropTypes.string.isRequired,
+   zeroAdded: PropTypes.string.isRequired,
+    minute: PropTypes.number.isRequired,
+  }
     constructor() {
     super();
     this.divStyle = {position: "absolute",
@@ -21,40 +24,25 @@ class App extends React.Component {// eslint disable-line react/prefer-stateless
                      borderRadius: "10px",
                      padding:"10px 5px"
                     };
-  }
+                    }
     
 state = {
     minZeroAdded:'0',
-    zeroAdded:'0',
+   zeroAdded:'0',
     number: 0,
     from: 0,
     to: 59,
     minute: 0,
-    isToggleOn: 0,
   }
 
 componentClicked(){
 this.setState({number: this.state.from});
 this.setState({zeroAdded: '0'});
 this.setState({minZeroAdded: '0'});
-    //    if(this.state.isToggleOn = 0)
-//    this.setState({isToggleOn: this.state.isToggleon = 1})
-//    this.addSec();
-//    if (this.state.isToggleOn = 1){
-//    this.setState({isToggleOn: this.state.isToggleon = 0})
-//        }
     }
 
-test(){
-    console.log(123);
-}
-
 addSec() {
-//if(this.state.isToggleOn = 1){
 this.interval = setInterval(() => this.setState({ number: this.state.number + 1}), 1000);
-//}
-//if (this.state.isToggleOn = 0)
-//{ return;}
 };
 
 updateFunction(){
@@ -82,8 +70,6 @@ if (this.state.minute > 9 && this.state.minZeroAdded !== null){
         return
     }
 };
-
-
 
 componentDidUpdate(){
 this.updateFunction();
